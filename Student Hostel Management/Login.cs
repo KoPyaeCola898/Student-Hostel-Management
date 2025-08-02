@@ -40,7 +40,18 @@ namespace Student_Hostel_Management
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            if (MessageBox.Show("Exit Application?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
 
+        private void txtPass_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                btnLogin.PerformClick();
+            }
         }
     }
 }
