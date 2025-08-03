@@ -18,10 +18,11 @@ namespace Student_Hostel_Management
         DBconnect dbcon = new DBconnect();
         Room room;
 
-        public RoomModule()
+        public RoomModule(Room rm)
         {
             InitializeComponent();
             cn = new SqlConnection(dbcon.myConnection());
+            room = rm;
         }
 
 
@@ -30,25 +31,26 @@ namespace Student_Hostel_Management
             txtRoomNo.Clear();
             txtRoomNo.Focus();
             txtOccupied.Text = "0";
-            btnSave.Enabled = true;
-            btnUpdate.Enabled = false;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
             try
             {
-                if (MessageBox.Show("Are you sure want to Add this Room?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("Are you sure want to Add this Room?", "Add Room", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     cn.Open();
-                    cmd = new SqlCommand("INSERT INTO tbRoom (roomNo, capacity, status) VALUES (@roomNo, @capacity, @status)", cn);
+                    cmd = new SqlCommand("INSERT INTO tbRoom (roomNo, capacity, occupied, status) VALUES (@roomNo, @capacity, @occupied, @status)", cn);
                     cmd.Parameters.AddWithValue("@roomNo", txtRoomNo.Text);
                     cmd.Parameters.AddWithValue("@capacity", UDCapacity.Value);
-                    cmd.Parameters.AddWithValue("@status", cboStatus.SelectedValue);
+                    cmd.Parameters.AddWithValue("@occupied", txtOccupied.Text);
+                    cmd.Parameters.AddWithValue("@status", cboStatus.Text);
                     cmd.ExecuteNonQuery();
                     cn.Close();
-                    MessageBox.Show("Room has been saved successful.", "Save");
+                    MessageBox.Show("Room has been saved successful.", "Save Room");
                     Clear();
+                    //btnSave.Enabled = true;
+                    //btnUpdate.Enabled = false;
                 }
                 room.LoadRoom();
             }
@@ -56,7 +58,7 @@ namespace Student_Hostel_Management
             {
                 MessageBox.Show(ex.Message);
             }
-        }
+}
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
@@ -80,10 +82,10 @@ namespace Student_Hostel_Management
                 cmd = new SqlCommand("UPDATE tbRoom SET roomNo = @roomNo, capacity = @capacity, status = @status WHERE id LIKE'" + lblId.Text + "'", cn);
                 cmd.Parameters.AddWithValue("@roomNo", txtRoomNo.Text);
                 cmd.Parameters.AddWithValue("@capacity", UDCapacity.Value);
-                cmd.Parameters.AddWithValue("@status", cboStatus.SelectedValue);
+                cmd.Parameters.AddWithValue("@status", cboStatus.Text);
                 cmd.ExecuteNonQuery();
                 cn.Close();
-                MessageBox.Show("Category has been successfully updated.", "Room Update");
+                MessageBox.Show("Room has been successfully updated.", "Room Update");
                 Clear();
                 this.Dispose();// To close this form after update data
             }

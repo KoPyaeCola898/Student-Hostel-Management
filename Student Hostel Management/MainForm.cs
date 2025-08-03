@@ -75,6 +75,7 @@ namespace Student_Hostel_Management
 
         private void btnRoom_Click(object sender, EventArgs e)
         {
+            openChildForm(new Room());
             HideSubMenu();
         }
 

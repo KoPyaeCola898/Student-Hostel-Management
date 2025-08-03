@@ -1,6 +1,6 @@
 ﻿namespace Student_Hostel_Management
 {
-    partial class Room
+    partial class Student
     {
         /// <summary>
         /// Required designer variable.
@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Room));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Student));
             this.dgvRoom = new System.Windows.Forms.DataGridView();
             this.btnAdd = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -40,8 +40,11 @@
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
             this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
+            this.txtSearch = new MetroFramework.Controls.MetroTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRoom)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -51,14 +54,14 @@
             this.dgvRoom.AllowUserToAddRows = false;
             this.dgvRoom.BackgroundColor = System.Drawing.Color.White;
             this.dgvRoom.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Teal;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRoom.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRoom.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvRoom.ColumnHeadersHeight = 30;
             this.dgvRoom.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvRoom.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -68,6 +71,8 @@
             this.Column3,
             this.Column4,
             this.Column5,
+            this.Column7,
+            this.Column8,
             this.Edit,
             this.Delete});
             this.dgvRoom.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -77,8 +82,7 @@
             this.dgvRoom.RowHeadersVisible = false;
             this.dgvRoom.RowHeadersWidth = 62;
             this.dgvRoom.Size = new System.Drawing.Size(983, 479);
-            this.dgvRoom.TabIndex = 5;
-            this.dgvRoom.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRoom_CellContentClick);
+            this.dgvRoom.TabIndex = 7;
             // 
             // btnAdd
             // 
@@ -90,7 +94,6 @@
             this.btnAdd.Size = new System.Drawing.Size(39, 32);
             this.btnAdd.TabIndex = 1;
             this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // label1
             // 
@@ -102,19 +105,20 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(107, 43);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Manage Room";
+            this.label1.Text = "Manage Student";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Green;
+            this.panel1.Controls.Add(this.txtSearch);
             this.panel1.Controls.Add(this.btnAdd);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 479);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(983, 80);
-            this.panel1.TabIndex = 4;
+            this.panel1.TabIndex = 6;
             // 
             // Column6
             // 
@@ -127,39 +131,55 @@
             // Column2
             // 
             this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column2.HeaderText = "Id";
+            this.Column2.HeaderText = "StdId";
             this.Column2.MinimumWidth = 8;
             this.Column2.Name = "Column2";
             this.Column2.Visible = false;
-            this.Column2.Width = 67;
+            this.Column2.Width = 101;
             // 
             // Column1
             // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column1.HeaderText = "RoomNo";
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column1.HeaderText = "RollNo";
             this.Column1.MinimumWidth = 8;
             this.Column1.Name = "Column1";
+            this.Column1.Width = 115;
             // 
             // Column3
             // 
             this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column3.HeaderText = "Capacity";
+            this.Column3.HeaderText = "Name";
             this.Column3.MinimumWidth = 8;
             this.Column3.Name = "Column3";
             // 
             // Column4
             // 
             this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column4.HeaderText = "Occupied";
+            this.Column4.HeaderText = "Major";
             this.Column4.MinimumWidth = 8;
             this.Column4.Name = "Column4";
             // 
             // Column5
             // 
-            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column5.HeaderText = "Status";
+            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column5.HeaderText = "Room";
             this.Column5.MinimumWidth = 8;
             this.Column5.Name = "Column5";
+            this.Column5.Width = 109;
+            // 
+            // Column7
+            // 
+            this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column7.HeaderText = "Ph.No";
+            this.Column7.MinimumWidth = 8;
+            this.Column7.Name = "Column7";
+            // 
+            // Column8
+            // 
+            this.Column8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column8.HeaderText = "Address";
+            this.Column8.MinimumWidth = 8;
+            this.Column8.Name = "Column8";
             // 
             // Edit
             // 
@@ -179,7 +199,42 @@
             this.Delete.Name = "Delete";
             this.Delete.Width = 8;
             // 
-            // Room
+            // txtSearch
+            // 
+            // 
+            // 
+            // 
+            this.txtSearch.CustomButton.Image = null;
+            this.txtSearch.CustomButton.Location = new System.Drawing.Point(350, 1);
+            this.txtSearch.CustomButton.Name = "";
+            this.txtSearch.CustomButton.Size = new System.Drawing.Size(25, 25);
+            this.txtSearch.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtSearch.CustomButton.TabIndex = 1;
+            this.txtSearch.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtSearch.CustomButton.UseSelectable = true;
+            this.txtSearch.CustomButton.Visible = false;
+            this.txtSearch.DisplayIcon = true;
+            this.txtSearch.Icon = ((System.Drawing.Image)(resources.GetObject("txtSearch.Icon")));
+            this.txtSearch.Lines = new string[0];
+            this.txtSearch.Location = new System.Drawing.Point(303, 27);
+            this.txtSearch.MaxLength = 32767;
+            this.txtSearch.Multiline = true;
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.PasswordChar = '\0';
+            this.txtSearch.PromptText = "Search here";
+            this.txtSearch.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtSearch.SelectedText = "";
+            this.txtSearch.SelectionLength = 0;
+            this.txtSearch.SelectionStart = 0;
+            this.txtSearch.ShortcutsEnabled = true;
+            this.txtSearch.Size = new System.Drawing.Size(376, 27);
+            this.txtSearch.TabIndex = 3;
+            this.txtSearch.UseSelectable = true;
+            this.txtSearch.WaterMark = "Search here";
+            this.txtSearch.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtSearch.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // Student
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -190,10 +245,10 @@
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "Room";
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Name = "Student";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ROOM";
+            this.Text = "STUDENT";
             ((System.ComponentModel.ISupportInitialize)(this.dgvRoom)).EndInit();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -212,7 +267,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewImageColumn Edit;
         private System.Windows.Forms.DataGridViewImageColumn Delete;
+        private MetroFramework.Controls.MetroTextBox txtSearch;
     }
 }

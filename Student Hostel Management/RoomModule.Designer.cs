@@ -193,11 +193,13 @@
             // 
             // txtOccupied
             // 
+            this.txtOccupied.Enabled = false;
             this.txtOccupied.Location = new System.Drawing.Point(149, 143);
             this.txtOccupied.Name = "txtOccupied";
             this.txtOccupied.ReadOnly = true;
             this.txtOccupied.Size = new System.Drawing.Size(194, 34);
             this.txtOccupied.TabIndex = 41;
+            this.txtOccupied.Text = "0";
             // 
             // UDCapacity
             // 
@@ -226,7 +228,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BackColor = System.Drawing.Color.Gainsboro;
             this.ClientSize = new System.Drawing.Size(708, 256);
             this.Controls.Add(this.UDCapacity);
             this.Controls.Add(this.txtOccupied);
@@ -270,8 +272,8 @@
         public System.Windows.Forms.Label lblId;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox cboStatus;
         public System.Windows.Forms.TextBox txtOccupied;
-        private System.Windows.Forms.NumericUpDown UDCapacity;
+        public System.Windows.Forms.ComboBox cboStatus;
+        public System.Windows.Forms.NumericUpDown UDCapacity;
     }
 }
