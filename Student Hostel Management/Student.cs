@@ -28,17 +28,66 @@ namespace Student_Hostel_Management
         public void LoadStudent()
         {
             int i = 0;
-            dgvRoom.Rows.Clear();
+            dgvStudent.Rows.Clear();
             cmd = new SqlCommand("SELECT s.stid, s.rollNo, s.name, s.major, r.roomNo, s.phNo, s.address FROM tbStudent AS s INNER JOIN tbRoom AS r ON r.id = s.rid WHERE CONCAT(s.rollNo, s.name, s.major, r.roomNo) LIKE '%" + txtSearch.Text + "%'", cn);
             cn.Open();
             dr = cmd.ExecuteReader();
             while (dr.Read())
             {
                 i++;
-                dgvRoom.Rows.Add(i, dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString());
+                dgvStudent.Rows.Add(i, dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString());
             }
             dr.Close();
             cn.Close();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            StudentModule module = new StudentModule(this);
+            module.btnSave.Enabled = true;
+            module.btnUpdate.Enabled = false;
+            module.ShowDialog();
+        }
+
+        private void dgvStudent_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string colName = dgvStudent.Columns[e.ColumnIndex].Name;
+            if (colName == "Edit")
+            {
+                StudentModule student = new StudentModule(this);
+                student.txtRollNo.Text = dgvStudent.Rows[e.RowIndex].Cells[2].Value.ToString();
+                student.txtName.Text = dgvStudent.Rows[e.RowIndex].Cells[3].Value.ToString();
+                student.txtMajor.Text = dgvStudent.Rows[e.RowIndex].Cells[4].Value.ToString();
+                student.cboRoom.Text = dgvStudent.Rows[e.RowIndex].Cells[5].Value.ToString();
+                student.txtPhNo.Text = dgvStudent.Rows[e.RowIndex].Cells[6].Value.ToString();
+                student.txtAddress.Text = dgvStudent.Rows[e.RowIndex].Cells[7].Value.ToString();
+
+                student.btnSave.Enabled = false;
+                student.btnUpdate.Enabled = true;
+                student.ShowDialog();
+            }
+            else if (colName == "Delete")
+            {
+                if (MessageBox.Show("Are you sure you want to Romove this Student?", "Remove Student", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    cn.Open();
+
+                    cmd = new SqlCommand("DELETE FROM tbStudent WHERE stid LIKE '" + dgvStudent[1, e.RowIndex].Value.ToString() + "'", cn);
+                    cmd.ExecuteNonQuery();
+
+                    SqlCommand cmd2 = new SqlCommand("DELETE FROM tbParent WHERE sid LIKE '" + dgvStudent[1, e.RowIndex].Value.ToString() + "'", cn);
+                    cmd2.ExecuteNonQuery();
+
+                    cn.Close();
+                    MessageBox.Show("Student has been successfully Removed.", "Remove Student", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            LoadStudent();
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            LoadStudent();
         }
     }
 }

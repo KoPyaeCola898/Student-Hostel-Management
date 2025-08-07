@@ -19,12 +19,12 @@ namespace Student_Hostel_Management
         SqlDataReader dr;
         Student student;
 
-        public StudentModule()
+        public StudentModule(Student st)
         {
             InitializeComponent();
             cn = new SqlConnection(dbcon.myConnection());
             LoadRoom();
-            //student = st;
+            student = st;
         }
 
         public void LoadRoom()
@@ -102,22 +102,119 @@ namespace Student_Hostel_Management
 
                     MessageBox.Show("Student has been saved successfully.", "Save Student");
                     Clear();
-                    //btnSave.Enabled = true;
-                    //btnUpdate.Enabled = false;
                 }
                 student.LoadStudent();
-
+                //Parent module = new RoomModule(this);
+                //module.btnSave.Enabled = true;
+                //module.btnUpdate.Enabled = false;
+                //module.ShowDialog();
             }
             catch (Exception ex)
             {
 
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Error");
             }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             Clear();
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (MessageBox.Show("Are you sure want to update this Student?", "Update Student", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    cn.Open();
+
+                    // Get old room ID
+                    SqlCommand getOldRoom = new SqlCommand("SELECT rid FROM tbStudent WHERE id = @id", cn);
+                    getOldRoom.Parameters.AddWithValue("@id", Convert.ToInt32(lblId.Text));
+                    object result = getOldRoom.ExecuteScalar();
+                    int oldRoomId = Convert.ToInt32(result);
+                    int newRoomId = Convert.ToInt32(cboRoom.SelectedValue);
+
+                    // Update Student Info
+                    cmd = new SqlCommand("UPDATE tbStudent SET rollNo = @rollNo, name = @name, major = @major, rid = @rid, phNo = @phNo, address = @address WHERE id = @id", cn);
+                    cmd.Parameters.AddWithValue("@rollNo", txtRollNo.Text);
+                    cmd.Parameters.AddWithValue("@name", txtName.Text);
+                    cmd.Parameters.AddWithValue("@major", txtMajor.Text);
+                    cmd.Parameters.AddWithValue("@rid", newRoomId);
+                    cmd.Parameters.AddWithValue("@phNo", txtPhNo.Text);
+                    cmd.Parameters.AddWithValue("@address", txtAddress.Text);
+                    cmd.Parameters.AddWithValue("@id", Convert.ToInt32(lblId.Text));
+                    cmd.ExecuteNonQuery();
+
+                    // Room Change Logic
+                    if (oldRoomId != newRoomId)
+                    {
+                        // Old Room - occupied minus 1
+                        SqlCommand cmdOld = new SqlCommand("UPDATE tbRoom SET occupied = occupied - 1 WHERE id = @oldId", cn);
+                        cmdOld.Parameters.AddWithValue("@oldId", oldRoomId);
+                        cmdOld.ExecuteNonQuery();
+
+                        // New Room - occupied plus 1
+                        SqlCommand cmdNew = new SqlCommand("UPDATE tbRoom SET occupied = occupied + 1 WHERE id = @newId", cn);
+                        cmdNew.Parameters.AddWithValue("@newId", newRoomId);
+                        cmdNew.ExecuteNonQuery();
+
+                        // -- Check New Room full?
+                        SqlCommand checkNewRoom = new SqlCommand("SELECT capacity, occupied FROM tbRoom WHERE id = @newId", cn);
+                        checkNewRoom.Parameters.AddWithValue("@newId", newRoomId);
+                        SqlDataReader reader = checkNewRoom.ExecuteReader();
+                        if (reader.Read())
+                        {
+                            int capacity = Convert.ToInt32(reader["capacity"]);
+                            int occupied = Convert.ToInt32(reader["occupied"]);
+                            reader.Close();
+
+                            if (occupied == capacity)
+                            {
+                                SqlCommand setUnavailable = new SqlCommand("UPDATE tbRoom SET status = 'Unavailable' WHERE id = @newId", cn);
+                                setUnavailable.Parameters.AddWithValue("@newId", newRoomId);
+                                setUnavailable.ExecuteNonQuery();
+                            }
+                        }
+                        else
+                        {
+                            reader.Close();
+                        }
+
+                        // -- Check Old Room open?
+                        SqlCommand checkOldRoom = new SqlCommand("SELECT capacity, occupied FROM tbRoom WHERE id = @oldId", cn);
+                        checkOldRoom.Parameters.AddWithValue("@oldId", oldRoomId);
+                        SqlDataReader reader2 = checkOldRoom.ExecuteReader();
+                        if (reader2.Read())
+                        {
+                            int capacity = Convert.ToInt32(reader2["capacity"]);
+                            int occupied = Convert.ToInt32(reader2["occupied"]);
+                            reader2.Close();
+
+                            if (occupied < capacity)
+                            {
+                                SqlCommand setAvailable = new SqlCommand("UPDATE tbRoom SET status = 'Available' WHERE id = @oldId", cn);
+                                setAvailable.Parameters.AddWithValue("@oldId", oldRoomId);
+                                setAvailable.ExecuteNonQuery();
+                            }
+                        }
+                        else
+                        {
+                            reader2.Close();
+                        }
+                    }
+
+                    cn.Close();
+                    MessageBox.Show("Student updated successfully!", "Update Student");
+                    Clear();
+                    student.LoadStudent();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error");
+            }
         }
     }
 }

@@ -48,6 +48,7 @@
             this.panelSlide = new System.Windows.Forms.Panel();
             this.btnFee = new System.Windows.Forms.Button();
             this.btnDashboard = new System.Windows.Forms.Button();
+            this.btnParent = new System.Windows.Forms.Button();
             this.panelTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelLogo.SuspendLayout();
@@ -167,7 +168,7 @@
             this.btnStudents.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnStudents.Size = new System.Drawing.Size(200, 45);
             this.btnStudents.TabIndex = 3;
-            this.btnStudents.Text = "Students";
+            this.btnStudents.Text = "Student";
             this.btnStudents.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnStudents.UseVisualStyleBackColor = false;
             this.btnStudents.Click += new System.EventHandler(this.btnStudents_Click);
@@ -179,7 +180,7 @@
             this.btnRollCall.FlatAppearance.BorderSize = 0;
             this.btnRollCall.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRollCall.ForeColor = System.Drawing.Color.White;
-            this.btnRollCall.Location = new System.Drawing.Point(0, 350);
+            this.btnRollCall.Location = new System.Drawing.Point(0, 395);
             this.btnRollCall.Name = "btnRollCall";
             this.btnRollCall.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnRollCall.Size = new System.Drawing.Size(200, 45);
@@ -196,7 +197,7 @@
             this.btnSetting.FlatAppearance.BorderSize = 0;
             this.btnSetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSetting.ForeColor = System.Drawing.Color.White;
-            this.btnSetting.Location = new System.Drawing.Point(0, 395);
+            this.btnSetting.Location = new System.Drawing.Point(0, 440);
             this.btnSetting.Name = "btnSetting";
             this.btnSetting.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnSetting.Size = new System.Drawing.Size(200, 45);
@@ -246,7 +247,7 @@
             this.panelSubSetting.Controls.Add(this.btnHostel);
             this.panelSubSetting.Controls.Add(this.btnUser);
             this.panelSubSetting.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSubSetting.Location = new System.Drawing.Point(0, 440);
+            this.panelSubSetting.Location = new System.Drawing.Point(0, 485);
             this.panelSubSetting.Name = "panelSubSetting";
             this.panelSubSetting.Size = new System.Drawing.Size(200, 90);
             this.panelSubSetting.TabIndex = 8;
@@ -277,6 +278,7 @@
             this.panelSlide.Controls.Add(this.btnSetting);
             this.panelSlide.Controls.Add(this.btnRollCall);
             this.panelSlide.Controls.Add(this.btnFee);
+            this.panelSlide.Controls.Add(this.btnParent);
             this.panelSlide.Controls.Add(this.btnStudents);
             this.panelSlide.Controls.Add(this.btnRoom);
             this.panelSlide.Controls.Add(this.btnDashboard);
@@ -294,7 +296,7 @@
             this.btnFee.FlatAppearance.BorderSize = 0;
             this.btnFee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFee.ForeColor = System.Drawing.Color.White;
-            this.btnFee.Location = new System.Drawing.Point(0, 305);
+            this.btnFee.Location = new System.Drawing.Point(0, 350);
             this.btnFee.Name = "btnFee";
             this.btnFee.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnFee.Size = new System.Drawing.Size(200, 45);
@@ -320,6 +322,23 @@
             this.btnDashboard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDashboard.UseVisualStyleBackColor = false;
             this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
+            // 
+            // btnParent
+            // 
+            this.btnParent.BackColor = System.Drawing.Color.DarkGreen;
+            this.btnParent.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnParent.FlatAppearance.BorderSize = 0;
+            this.btnParent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnParent.ForeColor = System.Drawing.Color.White;
+            this.btnParent.Location = new System.Drawing.Point(0, 305);
+            this.btnParent.Name = "btnParent";
+            this.btnParent.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnParent.Size = new System.Drawing.Size(200, 45);
+            this.btnParent.TabIndex = 10;
+            this.btnParent.Text = "Parent";
+            this.btnParent.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnParent.UseVisualStyleBackColor = false;
+            this.btnParent.Click += new System.EventHandler(this.btnParent_Click);
             // 
             // MainForm
             // 
@@ -366,5 +385,6 @@
         public System.Windows.Forms.Button btnDashboard;
         private System.Windows.Forms.Button btnHostel;
         private System.Windows.Forms.Button btnFee;
+        public System.Windows.Forms.Button btnParent;
     }
 }

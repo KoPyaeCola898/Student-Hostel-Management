@@ -95,6 +95,7 @@
             this.btnUpdate.TabIndex = 48;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // panel1
             // 
@@ -222,7 +223,7 @@
             // lblId
             // 
             this.lblId.AutoSize = true;
-            this.lblId.Location = new System.Drawing.Point(51, 308);
+            this.lblId.Location = new System.Drawing.Point(3, 53);
             this.lblId.Name = "lblId";
             this.lblId.Size = new System.Drawing.Size(31, 25);
             this.lblId.TabIndex = 64;
@@ -261,8 +262,9 @@
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "StudentModule";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "StudentModule";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

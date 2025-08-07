@@ -81,6 +81,7 @@ namespace Student_Hostel_Management
 
         private void btnStudents_Click(object sender, EventArgs e)
         {
+            openChildForm(new Student());
             HideSubMenu();
         }
 
@@ -122,6 +123,10 @@ namespace Student_Hostel_Management
             }
         }
 
-
+        private void btnParent_Click(object sender, EventArgs e)
+        {
+            openChildForm(new Parent());
+            HideSubMenu();
+        }
     }
 }
