@@ -49,6 +49,7 @@ namespace Student_Hostel_Management
                     cn.Close();
                     MessageBox.Show("Room has been saved successful.", "Save Room");
                     Clear();
+                    this.Dispose();
                     //btnSave.Enabled = true;
                     //btnUpdate.Enabled = false;
                 }
@@ -69,10 +70,17 @@ namespace Student_Hostel_Management
         {
             int Capacity0 = (int)UDCapacity.Value;
             int Occupied0 = int.Parse(txtOccupied.Text);
+            bool isAvailable = cboStatus.Text == "Available";
 
             if (Capacity0 < Occupied0)
             {
                 MessageBox.Show("Capacity can't be less than currently occupied students.", "Invalid Capacity", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (Capacity0 == Occupied0 && isAvailable)
+            {
+                MessageBox.Show("The room is full. Cannot Available.", "Invalid Status", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 

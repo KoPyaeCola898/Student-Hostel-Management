@@ -48,6 +48,9 @@ namespace Student_Hostel_Management
             txtMajor.Clear();
             cboRoom.SelectedIndex = 0;
             txtAddress.Clear();
+            txtfName.Clear();
+            txtfPhno.Clear();
+            txtfAddress.Clear();
 
             txtRollNo.Enabled = true;
             txtRollNo.Focus();
@@ -62,20 +65,29 @@ namespace Student_Hostel_Management
                     cn.Open();
 
                     // insert student
-                    cmd = new SqlCommand("INSERT INTO tbStudent (rollNo, name, major, rid, phNo, address) VALUES (@rollNo, @name, @major, @rid, @phNo, @address)", cn);
+                    cmd = new SqlCommand(@"INSERT INTO tbStudent (rollNo, name, major, rid, phNo, address) VALUES (@rollNo, @name, @major, @rid, @phNo, @address); SELECT SCOPE_IDENTITY();", cn);
                     cmd.Parameters.AddWithValue("@rollNo", txtRollNo.Text);
                     cmd.Parameters.AddWithValue("@name", txtName.Text);
                     cmd.Parameters.AddWithValue("@major", txtMajor.Text);
                     cmd.Parameters.AddWithValue("@rid", cboRoom.SelectedValue);
                     cmd.Parameters.AddWithValue("@phNo", txtPhNo.Text);
                     cmd.Parameters.AddWithValue("@address", txtAddress.Text);
-                    cmd.ExecuteNonQuery();
+                    //cmd.ExecuteNonQuery();
+
+                    int newSid = Convert.ToInt32(cmd.ExecuteScalar()); // Student id
+
+                    // Insert parent 
+                    SqlCommand cmdParent = new SqlCommand("INSERT INTO tbParent (sid, fname, fphno, faddress) VALUES (@sid, @fname, @fphno, @faddress)", cn);
+                    cmdParent.Parameters.AddWithValue("@sid", newSid);
+                    cmdParent.Parameters.AddWithValue("@fname", txtfName.Text);
+                    cmdParent.Parameters.AddWithValue("@fphno", txtfPhno.Text);
+                    cmdParent.Parameters.AddWithValue("@faddress", txtfAddress.Text);
+                    cmdParent.ExecuteNonQuery();
 
                     // Update occupied count (+1)
                     SqlCommand cmd2 = new SqlCommand("UPDATE tbRoom SET occupied = occupied + 1 WHERE id = @rid", cn);
                     cmd2.Parameters.AddWithValue("@rid", cboRoom.SelectedValue);
                     cmd2.ExecuteNonQuery();
-                    cn.Close();
 
                     // Check if occupied == capacity => then set status = 'Unavailable'
                     SqlCommand cmd3 = new SqlCommand("SELECT capacity, occupied FROM tbRoom WHERE id = @rid", cn);
@@ -99,15 +111,13 @@ namespace Student_Hostel_Management
                     {
                         dr.Close();
                     }
+                    cn.Close();
 
                     MessageBox.Show("Student has been saved successfully.", "Save Student");
                     Clear();
+                    this.Dispose();
                 }
                 student.LoadStudent();
-                //Parent module = new RoomModule(this);
-                //module.btnSave.Enabled = true;
-                //module.btnUpdate.Enabled = false;
-                //module.ShowDialog();
             }
             catch (Exception ex)
             {
@@ -130,22 +140,30 @@ namespace Student_Hostel_Management
                     cn.Open();
 
                     // Get old room ID
-                    SqlCommand getOldRoom = new SqlCommand("SELECT rid FROM tbStudent WHERE id = @id", cn);
+                    SqlCommand getOldRoom = new SqlCommand("SELECT rid FROM tbStudent WHERE stid = @id", cn);
                     getOldRoom.Parameters.AddWithValue("@id", Convert.ToInt32(lblId.Text));
                     object result = getOldRoom.ExecuteScalar();
                     int oldRoomId = Convert.ToInt32(result);
                     int newRoomId = Convert.ToInt32(cboRoom.SelectedValue);
 
                     // Update Student Info
-                    cmd = new SqlCommand("UPDATE tbStudent SET rollNo = @rollNo, name = @name, major = @major, rid = @rid, phNo = @phNo, address = @address WHERE id = @id", cn);
+                    cmd = new SqlCommand("UPDATE tbStudent SET rollNo = @rollNo, name = @name, major = @major, rid = @rid, phNo = @phNo, address = @address WHERE stid = @stid", cn);
                     cmd.Parameters.AddWithValue("@rollNo", txtRollNo.Text);
                     cmd.Parameters.AddWithValue("@name", txtName.Text);
                     cmd.Parameters.AddWithValue("@major", txtMajor.Text);
                     cmd.Parameters.AddWithValue("@rid", newRoomId);
                     cmd.Parameters.AddWithValue("@phNo", txtPhNo.Text);
                     cmd.Parameters.AddWithValue("@address", txtAddress.Text);
-                    cmd.Parameters.AddWithValue("@id", Convert.ToInt32(lblId.Text));
+                    cmd.Parameters.AddWithValue("@stid", lblId.Text);
                     cmd.ExecuteNonQuery();
+
+                    // Update Parent Info
+                    SqlCommand cmdparent = new SqlCommand("UPDATE tbParent SET fname = @fname, fphno = @fphno, faddress = @faddress WHERE sid = @sid", cn);
+                    cmdparent.Parameters.AddWithValue("@fname", txtfName.Text);
+                    cmdparent.Parameters.AddWithValue("@fphno", txtfPhno.Text);
+                    cmdparent.Parameters.AddWithValue("@faddress", txtfAddress.Text);
+                    cmdparent.Parameters.AddWithValue("@sid", lblId.Text);
+                    cmdparent.ExecuteNonQuery();
 
                     // Room Change Logic
                     if (oldRoomId != newRoomId)
@@ -207,8 +225,10 @@ namespace Student_Hostel_Management
 
                     cn.Close();
                     MessageBox.Show("Student updated successfully!", "Update Student");
+
                     Clear();
                     student.LoadStudent();
+                    this.Dispose();
                 }
             }
             catch (Exception ex)

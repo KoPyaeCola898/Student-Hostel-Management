@@ -37,15 +37,14 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
-            this.txtPhNo = new System.Windows.Forms.TextBox();
+            this.txtStName = new System.Windows.Forms.TextBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnSave = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtPhNo = new System.Windows.Forms.TextBox();
+            this.txtStRollNo = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.picClose)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -85,6 +84,7 @@
             this.picClose.Size = new System.Drawing.Size(30, 35);
             this.picClose.TabIndex = 1;
             this.picClose.TabStop = false;
+            this.picClose.Click += new System.EventHandler(this.picClose_Click);
             // 
             // label4
             // 
@@ -120,12 +120,14 @@
             this.txtName.Size = new System.Drawing.Size(194, 34);
             this.txtName.TabIndex = 70;
             // 
-            // txtPhNo
+            // txtStName
             // 
-            this.txtPhNo.Location = new System.Drawing.Point(503, 81);
-            this.txtPhNo.Name = "txtPhNo";
-            this.txtPhNo.Size = new System.Drawing.Size(188, 34);
-            this.txtPhNo.TabIndex = 71;
+            this.txtStName.Enabled = false;
+            this.txtStName.Location = new System.Drawing.Point(503, 81);
+            this.txtStName.Name = "txtStName";
+            this.txtStName.ReadOnly = true;
+            this.txtStName.Size = new System.Drawing.Size(188, 34);
+            this.txtStName.TabIndex = 71;
             // 
             // btnCancel
             // 
@@ -140,6 +142,7 @@
             this.btnCancel.TabIndex = 69;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnUpdate
             // 
@@ -148,12 +151,13 @@
             this.btnUpdate.FlatAppearance.BorderSize = 0;
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate.Location = new System.Drawing.Point(523, 219);
+            this.btnUpdate.Location = new System.Drawing.Point(517, 219);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(94, 35);
             this.btnUpdate.TabIndex = 68;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // panel1
             // 
@@ -177,20 +181,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Parent Module";
             // 
-            // btnSave
-            // 
-            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSave.BackColor = System.Drawing.Color.Green;
-            this.btnSave.FlatAppearance.BorderSize = 0;
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(423, 219);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(94, 35);
-            this.btnSave.TabIndex = 67;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = false;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -200,19 +190,21 @@
             this.label5.TabIndex = 83;
             this.label5.Text = "Phone No :";
             // 
-            // textBox1
+            // txtPhNo
             // 
-            this.textBox1.Location = new System.Drawing.Point(503, 125);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(188, 34);
-            this.textBox1.TabIndex = 82;
+            this.txtPhNo.Location = new System.Drawing.Point(503, 125);
+            this.txtPhNo.Name = "txtPhNo";
+            this.txtPhNo.Size = new System.Drawing.Size(188, 34);
+            this.txtPhNo.TabIndex = 82;
             // 
-            // textBox2
+            // txtStRollNo
             // 
-            this.textBox2.Location = new System.Drawing.Point(160, 81);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(194, 34);
-            this.textBox2.TabIndex = 84;
+            this.txtStRollNo.Enabled = false;
+            this.txtStRollNo.Location = new System.Drawing.Point(160, 81);
+            this.txtStRollNo.Name = "txtStRollNo";
+            this.txtStRollNo.ReadOnly = true;
+            this.txtStRollNo.Size = new System.Drawing.Size(194, 34);
+            this.txtStRollNo.TabIndex = 84;
             // 
             // ParentModule
             // 
@@ -220,9 +212,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
             this.ClientSize = new System.Drawing.Size(732, 260);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtStRollNo);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtPhNo);
             this.Controls.Add(this.lblId);
             this.Controls.Add(this.txtAddress);
             this.Controls.Add(this.label7);
@@ -230,14 +222,13 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtName);
-            this.Controls.Add(this.txtPhNo);
+            this.Controls.Add(this.txtStName);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.btnSave);
             this.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ParentModule";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ParentModule";
@@ -258,14 +249,13 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         public System.Windows.Forms.TextBox txtName;
-        public System.Windows.Forms.TextBox txtPhNo;
+        public System.Windows.Forms.TextBox txtStName;
         public System.Windows.Forms.Button btnCancel;
         public System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
-        public System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label label5;
-        public System.Windows.Forms.TextBox textBox1;
-        public System.Windows.Forms.TextBox textBox2;
+        public System.Windows.Forms.TextBox txtPhNo;
+        public System.Windows.Forms.TextBox txtStRollNo;
     }
 }

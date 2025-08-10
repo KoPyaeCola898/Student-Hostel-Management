@@ -55,12 +55,26 @@ namespace Student_Hostel_Management
             if (colName == "Edit")
             {
                 StudentModule student = new StudentModule(this);
+                student.lblId.Text = dgvStudent.Rows[e.RowIndex].Cells[1].Value.ToString();
                 student.txtRollNo.Text = dgvStudent.Rows[e.RowIndex].Cells[2].Value.ToString();
                 student.txtName.Text = dgvStudent.Rows[e.RowIndex].Cells[3].Value.ToString();
                 student.txtMajor.Text = dgvStudent.Rows[e.RowIndex].Cells[4].Value.ToString();
                 student.cboRoom.Text = dgvStudent.Rows[e.RowIndex].Cells[5].Value.ToString();
                 student.txtPhNo.Text = dgvStudent.Rows[e.RowIndex].Cells[6].Value.ToString();
                 student.txtAddress.Text = dgvStudent.Rows[e.RowIndex].Cells[7].Value.ToString();
+
+                //int studentId = Convert.ToInt32(dgvStudent.Rows[e.RowIndex].Cells[1].Value);
+                cn.Open();
+                SqlCommand cmdp = new SqlCommand("Select * From tbParent WHERE sid LIKE '" + student.lblId.Text + "'", cn);
+                SqlDataReader drp = cmdp.ExecuteReader();
+                if (drp.Read())
+                {
+                    student.txtfName.Text = drp["fname"].ToString();
+                    student.txtfPhno.Text = drp["fphno"].ToString();
+                    student.txtfAddress.Text = drp["faddress"].ToString();
+                }
+                cn.Close();
+                drp.Close();
 
                 student.btnSave.Enabled = false;
                 student.btnUpdate.Enabled = true;

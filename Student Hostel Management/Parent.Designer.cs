@@ -28,56 +28,57 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Parent));
-            this.dgvRoom = new System.Windows.Forms.DataGridView();
+            this.dgvParent = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtSearch = new MetroFramework.Controls.MetroTextBox();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRoom)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvParent)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dgvRoom
+            // dgvParent
             // 
-            this.dgvRoom.AllowUserToAddRows = false;
-            this.dgvRoom.BackgroundColor = System.Drawing.Color.White;
-            this.dgvRoom.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Teal;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRoom.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvRoom.ColumnHeadersHeight = 30;
-            this.dgvRoom.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvRoom.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvParent.AllowUserToAddRows = false;
+            this.dgvParent.BackgroundColor = System.Drawing.Color.White;
+            this.dgvParent.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvParent.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvParent.ColumnHeadersHeight = 30;
+            this.dgvParent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvParent.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column6,
+            this.Column2,
             this.Column1,
             this.Column3,
             this.Column4,
             this.Column7,
             this.Column8,
-            this.Edit,
-            this.Delete});
-            this.dgvRoom.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvRoom.EnableHeadersVisualStyles = false;
-            this.dgvRoom.Location = new System.Drawing.Point(0, 0);
-            this.dgvRoom.Name = "dgvRoom";
-            this.dgvRoom.RowHeadersVisible = false;
-            this.dgvRoom.RowHeadersWidth = 62;
-            this.dgvRoom.Size = new System.Drawing.Size(983, 479);
-            this.dgvRoom.TabIndex = 9;
+            this.Edit});
+            this.dgvParent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvParent.EnableHeadersVisualStyles = false;
+            this.dgvParent.Location = new System.Drawing.Point(0, 0);
+            this.dgvParent.Name = "dgvParent";
+            this.dgvParent.RowHeadersVisible = false;
+            this.dgvParent.RowHeadersWidth = 62;
+            this.dgvParent.Size = new System.Drawing.Size(983, 479);
+            this.dgvParent.TabIndex = 9;
+            this.dgvParent.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvParent_CellContentClick);
             // 
             // label1
             // 
@@ -137,6 +138,7 @@
             this.txtSearch.WaterMark = "Search here";
             this.txtSearch.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtSearch.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // Column6
             // 
@@ -145,6 +147,14 @@
             this.Column6.MinimumWidth = 8;
             this.Column6.Name = "Column6";
             this.Column6.Width = 76;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "pid";
+            this.Column2.MinimumWidth = 8;
+            this.Column2.Name = "Column2";
+            this.Column2.Visible = false;
+            this.Column2.Width = 150;
             // 
             // Column1
             // 
@@ -156,11 +166,10 @@
             // 
             // Column3
             // 
-            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column3.HeaderText = "Name";
             this.Column3.MinimumWidth = 8;
             this.Column3.Name = "Column3";
-            this.Column3.Width = 113;
             // 
             // Column4
             // 
@@ -171,10 +180,11 @@
             // 
             // Column7
             // 
-            this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Column7.HeaderText = "Ph.No";
             this.Column7.MinimumWidth = 8;
             this.Column7.Name = "Column7";
+            this.Column7.Width = 108;
             // 
             // Column8
             // 
@@ -192,30 +202,21 @@
             this.Edit.Name = "Edit";
             this.Edit.Width = 8;
             // 
-            // Delete
-            // 
-            this.Delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Delete.HeaderText = "";
-            this.Delete.Image = ((System.Drawing.Image)(resources.GetObject("Delete.Image")));
-            this.Delete.MinimumWidth = 8;
-            this.Delete.Name = "Delete";
-            this.Delete.Width = 8;
-            // 
             // Parent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(983, 559);
             this.ControlBox = false;
-            this.Controls.Add(this.dgvRoom);
+            this.Controls.Add(this.dgvParent);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Parent";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Parent";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRoom)).EndInit();
+            this.Text = "PARENT";
+            ((System.ComponentModel.ISupportInitialize)(this.dgvParent)).EndInit();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -223,17 +224,17 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgvRoom;
+        private System.Windows.Forms.DataGridView dgvParent;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private MetroFramework.Controls.MetroTextBox txtSearch;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewImageColumn Edit;
-        private System.Windows.Forms.DataGridViewImageColumn Delete;
     }
 }
