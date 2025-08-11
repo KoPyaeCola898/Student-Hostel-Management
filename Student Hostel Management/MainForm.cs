@@ -16,40 +16,42 @@ namespace Student_Hostel_Management
         SqlConnection cn = new SqlConnection();
         SqlCommand cmd = new SqlCommand();
         DBconnect dbcon = new DBconnect();
+        SqlDataReader dr;
+        public string _pass;
 
         public MainForm()
         {
             InitializeComponent();
-            CustomizeDesing();
+            //CustomizeDesing();
             cn = new SqlConnection(dbcon.myConnection());
             cn.Open();
             //MessageBox.Show("Database is connected!");
         }
 
         #region panelSlide
-        private void CustomizeDesing()
-        {
-            panelSubSetting.Visible = false;
-        }
+        //private void CustomizeDesing()
+        //{
+        //    panelSubSetting.Visible = false;
+        //}
 
-        private void HideSubMenu()
-        {
-            if (panelSubSetting.Visible == true)
-                panelSubSetting.Visible = false;
-        }
+        //private void HideSubMenu()
+        //{
+        //    if (panelSubSetting.Visible == true)
+        //        panelSubSetting.Visible = false;
+        //}
 
-        private void ShowSubMenu(Panel submenu)
-        {
-            if (submenu.Visible == false)
-            {
-                HideSubMenu();
-                submenu.Visible = true;
-            }
-            else
-            {
-                submenu.Visible = false;
-            }
-        }
+        //private void ShowSubMenu(Panel submenu)
+        //{
+        //    if (submenu.Visible == false)
+        //    {
+        //        HideSubMenu();
+        //        submenu.Visible = true;
+        //    }
+        //    else
+        //    {
+        //        submenu.Visible = false;
+        //    }
+        //}
         #endregion panelSlide
 
         private Form activeForm = null;
@@ -70,51 +72,39 @@ namespace Student_Hostel_Management
 
         private void btnDashboard_Click(object sender, EventArgs e)
         {
-            HideSubMenu();
+            
         }
 
         private void btnRoom_Click(object sender, EventArgs e)
         {
             openChildForm(new Room());
-            HideSubMenu();
+            
         }
 
         private void btnStudents_Click(object sender, EventArgs e)
         {
             openChildForm(new Student());
-            HideSubMenu();
+            
         }
 
         private void btnFee_Click(object sender, EventArgs e)
         {
-            HideSubMenu();
+            
         }
 
         private void btnRollCall_Click(object sender, EventArgs e)
         {
-            HideSubMenu();
+            
         }
 
         private void btnSetting_Click(object sender, EventArgs e)
         {
-            ShowSubMenu(panelSubSetting);
-        }
-
-        private void btnUser_Click(object sender, EventArgs e)
-        {
-            openChildForm(new UserAccount());
-            HideSubMenu();
-        }
-
-        private void btnHostel_Click(object sender, EventArgs e)
-        {
-            HideSubMenu();
+            openChildForm(new UserAccount(this));
+            
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            HideSubMenu();
-
             if (MessageBox.Show("Logout Application?", "Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 this.Hide();
@@ -126,7 +116,7 @@ namespace Student_Hostel_Management
         private void btnParent_Click(object sender, EventArgs e)
         {
             openChildForm(new Parent());
-            HideSubMenu();
+            
         }
     }
 }

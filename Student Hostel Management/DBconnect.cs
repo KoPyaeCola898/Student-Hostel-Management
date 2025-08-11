@@ -13,6 +13,7 @@ namespace Student_Hostel_Management
     {
         SqlConnection cn = new SqlConnection();
         SqlCommand cmd = new SqlCommand();
+        SqlDataReader dr;
         private string con;
 
         public string myConnection()
@@ -29,6 +30,40 @@ namespace Student_Hostel_Management
             DataTable dt = new DataTable();
             da.Fill(dt);
             return dt;
+        }
+
+        public void ExecuteQuery(String sql)
+        {
+            try
+            {
+                cn.ConnectionString = myConnection();
+                cn.Open();
+                cmd = new SqlCommand(sql, cn);
+                cmd.ExecuteNonQuery();
+                cn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        public String getPassword(string username)
+        {
+            string password = "";
+            cn.ConnectionString = myConnection();
+            cn.Open();
+            cmd = new SqlCommand("SELECT password FROM tbUser WHERE username = '" + username + "'", cn);
+            dr = cmd.ExecuteReader();
+            dr.Read();
+            if (dr.HasRows)
+            {
+                password = dr["password"].ToString();
+            }
+            dr.Close();
+            cn.Close();
+            return password;
         }
     }
 }

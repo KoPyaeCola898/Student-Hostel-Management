@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserAccount));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblUsername = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.metroTabPage2 = new MetroFramework.Controls.MetroTabPage();
@@ -56,11 +58,27 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.metroTabPage3 = new MetroFramework.Controls.MetroTabPage();
+            this.dgvUser = new System.Windows.Forms.DataGridView();
+            this.gbUser = new System.Windows.Forms.GroupBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.lblAccNote = new System.Windows.Forms.Label();
+            this.btnResetPass = new System.Windows.Forms.Button();
+            this.btnRemove = new System.Windows.Forms.Button();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.metroTabPage2.SuspendLayout();
             this.metroTabControl1.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.metroTabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUser)).BeginInit();
+            this.gbUser.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // lblUsername
@@ -97,7 +115,7 @@
             this.metroTabPage2.Controls.Add(this.label8);
             this.metroTabPage2.HorizontalScrollbarBarColor = true;
             this.metroTabPage2.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroTabPage2.HorizontalScrollbarSize = 3;
+            this.metroTabPage2.HorizontalScrollbarSize = 2;
             this.metroTabPage2.Location = new System.Drawing.Point(4, 38);
             this.metroTabPage2.Name = "metroTabPage2";
             this.metroTabPage2.Size = new System.Drawing.Size(920, 410);
@@ -105,7 +123,7 @@
             this.metroTabPage2.Text = "Change Password";
             this.metroTabPage2.VerticalScrollbarBarColor = true;
             this.metroTabPage2.VerticalScrollbarHighlightOnWheel = false;
-            this.metroTabPage2.VerticalScrollbarSize = 3;
+            this.metroTabPage2.VerticalScrollbarSize = 2;
             // 
             // btnPassSave
             // 
@@ -120,6 +138,7 @@
             this.btnPassSave.TabIndex = 33;
             this.btnPassSave.Text = "Save";
             this.btnPassSave.UseVisualStyleBackColor = false;
+            this.btnPassSave.Click += new System.EventHandler(this.btnPassSave_Click);
             // 
             // btnPassCancel
             // 
@@ -134,6 +153,7 @@
             this.btnPassCancel.TabIndex = 34;
             this.btnPassCancel.Text = "Cancel";
             this.btnPassCancel.UseVisualStyleBackColor = false;
+            this.btnPassCancel.Click += new System.EventHandler(this.btnPassCancel_Click);
             // 
             // txtRePass2
             // 
@@ -190,9 +210,10 @@
             // 
             this.metroTabControl1.Controls.Add(this.metroTabPage1);
             this.metroTabControl1.Controls.Add(this.metroTabPage2);
+            this.metroTabControl1.Controls.Add(this.metroTabPage3);
             this.metroTabControl1.Location = new System.Drawing.Point(32, 6);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 1;
+            this.metroTabControl1.SelectedIndex = 2;
             this.metroTabControl1.Size = new System.Drawing.Size(928, 452);
             this.metroTabControl1.TabIndex = 6;
             this.metroTabControl1.UseSelectable = true;
@@ -214,7 +235,7 @@
             this.metroTabPage1.Controls.Add(this.label2);
             this.metroTabPage1.HorizontalScrollbarBarColor = true;
             this.metroTabPage1.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroTabPage1.HorizontalScrollbarSize = 3;
+            this.metroTabPage1.HorizontalScrollbarSize = 2;
             this.metroTabPage1.Location = new System.Drawing.Point(4, 38);
             this.metroTabPage1.Name = "metroTabPage1";
             this.metroTabPage1.Size = new System.Drawing.Size(920, 410);
@@ -222,7 +243,7 @@
             this.metroTabPage1.Text = "Create Account";
             this.metroTabPage1.VerticalScrollbarBarColor = true;
             this.metroTabPage1.VerticalScrollbarHighlightOnWheel = false;
-            this.metroTabPage1.VerticalScrollbarSize = 3;
+            this.metroTabPage1.VerticalScrollbarSize = 2;
             // 
             // btnAccSave
             // 
@@ -266,6 +287,7 @@
             this.cbRole.FormattingEnabled = true;
             this.cbRole.Items.AddRange(new object[] {
             "Warden",
+            "Hall Tutor",
             "EC"});
             this.cbRole.Location = new System.Drawing.Point(265, 220);
             this.cbRole.Name = "cbRole";
@@ -363,6 +385,154 @@
             this.label1.Text = "User Setting";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // metroTabPage3
+            // 
+            this.metroTabPage3.Controls.Add(this.gbUser);
+            this.metroTabPage3.Controls.Add(this.btnRemove);
+            this.metroTabPage3.Controls.Add(this.dgvUser);
+            this.metroTabPage3.HorizontalScrollbarBarColor = true;
+            this.metroTabPage3.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroTabPage3.HorizontalScrollbarSize = 10;
+            this.metroTabPage3.Location = new System.Drawing.Point(4, 38);
+            this.metroTabPage3.Name = "metroTabPage3";
+            this.metroTabPage3.Size = new System.Drawing.Size(920, 410);
+            this.metroTabPage3.TabIndex = 2;
+            this.metroTabPage3.Text = "Manage Accounts";
+            this.metroTabPage3.VerticalScrollbarBarColor = true;
+            this.metroTabPage3.VerticalScrollbarHighlightOnWheel = false;
+            this.metroTabPage3.VerticalScrollbarSize = 10;
+            // 
+            // dgvUser
+            // 
+            this.dgvUser.AllowUserToAddRows = false;
+            this.dgvUser.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvUser.BackgroundColor = System.Drawing.Color.White;
+            this.dgvUser.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Aquamarine;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvUser.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvUser.ColumnHeadersHeight = 30;
+            this.dgvUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvUser.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column5,
+            this.Column4});
+            this.dgvUser.EnableHeadersVisualStyles = false;
+            this.dgvUser.Location = new System.Drawing.Point(14, 14);
+            this.dgvUser.Name = "dgvUser";
+            this.dgvUser.RowHeadersVisible = false;
+            this.dgvUser.RowHeadersWidth = 62;
+            this.dgvUser.Size = new System.Drawing.Size(890, 237);
+            this.dgvUser.TabIndex = 4;
+            this.dgvUser.SelectionChanged += new System.EventHandler(this.dgvUser_SelectionChanged);
+            // 
+            // gbUser
+            // 
+            this.gbUser.BackColor = System.Drawing.Color.White;
+            this.gbUser.Controls.Add(this.pictureBox2);
+            this.gbUser.Controls.Add(this.lblAccNote);
+            this.gbUser.Controls.Add(this.btnResetPass);
+            this.gbUser.Location = new System.Drawing.Point(15, 305);
+            this.gbUser.Name = "gbUser";
+            this.gbUser.Size = new System.Drawing.Size(890, 100);
+            this.gbUser.TabIndex = 25;
+            this.gbUser.TabStop = false;
+            this.gbUser.Text = "Password For UserName";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(22, 32);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox2.TabIndex = 1;
+            this.pictureBox2.TabStop = false;
+            // 
+            // lblAccNote
+            // 
+            this.lblAccNote.AutoSize = true;
+            this.lblAccNote.Location = new System.Drawing.Point(103, 27);
+            this.lblAccNote.Name = "lblAccNote";
+            this.lblAccNote.Size = new System.Drawing.Size(664, 25);
+            this.lblAccNote.TabIndex = 0;
+            this.lblAccNote.Text = "To change the password for username, click Reset Password.";
+            // 
+            // btnResetPass
+            // 
+            this.btnResetPass.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnResetPass.BackColor = System.Drawing.Color.Silver;
+            this.btnResetPass.FlatAppearance.BorderSize = 0;
+            this.btnResetPass.ForeColor = System.Drawing.Color.Black;
+            this.btnResetPass.Location = new System.Drawing.Point(662, 59);
+            this.btnResetPass.Name = "btnResetPass";
+            this.btnResetPass.Size = new System.Drawing.Size(222, 35);
+            this.btnResetPass.TabIndex = 22;
+            this.btnResetPass.Text = "Reset Password...";
+            this.btnResetPass.UseVisualStyleBackColor = false;
+            this.btnResetPass.Click += new System.EventHandler(this.btnResetPass_Click);
+            // 
+            // btnRemove
+            // 
+            this.btnRemove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRemove.BackColor = System.Drawing.Color.Red;
+            this.btnRemove.FlatAppearance.BorderSize = 0;
+            this.btnRemove.ForeColor = System.Drawing.Color.Yellow;
+            this.btnRemove.Location = new System.Drawing.Point(788, 264);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(111, 35);
+            this.btnRemove.TabIndex = 24;
+            this.btnRemove.Text = "Remove";
+            this.btnRemove.UseVisualStyleBackColor = false;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
+            // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle6;
+            this.Column1.HeaderText = "No";
+            this.Column1.MinimumWidth = 8;
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 76;
+            // 
+            // Column2
+            // 
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column2.HeaderText = "User Name";
+            this.Column2.MinimumWidth = 8;
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 164;
+            // 
+            // Column3
+            // 
+            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column3.HeaderText = "Full Name";
+            this.Column3.MinimumWidth = 8;
+            this.Column3.Name = "Column3";
+            // 
+            // Column5
+            // 
+            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column5.HeaderText = "Password";
+            this.Column5.MinimumWidth = 8;
+            this.Column5.Name = "Column5";
+            // 
+            // Column4
+            // 
+            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column4.HeaderText = "Role";
+            this.Column4.MinimumWidth = 8;
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 93;
+            // 
             // UserAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 25F);
@@ -378,6 +548,7 @@
             this.Name = "UserAccount";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UserAccount";
+            this.Load += new System.EventHandler(this.UserAccount_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.metroTabPage2.ResumeLayout(false);
             this.metroTabPage2.PerformLayout();
@@ -385,6 +556,11 @@
             this.metroTabPage1.ResumeLayout(false);
             this.metroTabPage1.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.metroTabPage3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUser)).EndInit();
+            this.gbUser.ResumeLayout(false);
+            this.gbUser.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -418,5 +594,17 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
+        private MetroFramework.Controls.MetroTabPage metroTabPage3;
+        private System.Windows.Forms.DataGridView dgvUser;
+        private System.Windows.Forms.GroupBox gbUser;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label lblAccNote;
+        public System.Windows.Forms.Button btnResetPass;
+        public System.Windows.Forms.Button btnRemove;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
     }
 }
