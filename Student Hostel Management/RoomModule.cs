@@ -59,7 +59,7 @@ namespace Student_Hostel_Management
             {
                 MessageBox.Show(ex.Message);
             }
-}
+        }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {

@@ -73,6 +73,7 @@ namespace Student_Hostel_Management
                         Staff staff = new Staff();
                         staff.lblUsername.Text = _username;
                         staff.lblName.Text = _name;
+                        staff._pass = _pass;
                         staff.ShowDialog();
                     }
                     else

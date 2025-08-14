@@ -118,5 +118,10 @@ namespace Student_Hostel_Management
             openChildForm(new Parent());
             
         }
+
+        private void btnPolicy_Click(object sender, EventArgs e)
+        {
+            openChildForm(new Policy());
+        }
     }
 }

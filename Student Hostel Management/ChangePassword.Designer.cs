@@ -72,7 +72,7 @@
             // 
             this.lblUsername.AutoSize = true;
             this.lblUsername.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsername.Location = new System.Drawing.Point(209, 127);
+            this.lblUsername.Location = new System.Drawing.Point(209, 115);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(125, 27);
             this.lblUsername.TabIndex = 46;
@@ -100,6 +100,7 @@
             this.btnPassSave.TabIndex = 43;
             this.btnPassSave.Text = "Save";
             this.btnPassSave.UseVisualStyleBackColor = false;
+            this.btnPassSave.Click += new System.EventHandler(this.btnPassSave_Click);
             // 
             // btnPassCancel
             // 
@@ -114,6 +115,7 @@
             this.btnPassCancel.TabIndex = 44;
             this.btnPassCancel.Text = "Cancel";
             this.btnPassCancel.UseVisualStyleBackColor = false;
+            this.btnPassCancel.Click += new System.EventHandler(this.btnPassCancel_Click);
             // 
             // txtRePass2
             // 
@@ -185,9 +187,10 @@
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ChangePassword";
             this.Text = "ChangePassword";
+            this.Load += new System.EventHandler(this.ChangePassword_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

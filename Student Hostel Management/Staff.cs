@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,12 @@ namespace Student_Hostel_Management
 {
     public partial class Staff : Form
     {
+        SqlConnection cn = new SqlConnection();
+        SqlCommand cmd = new SqlCommand();
+        DBconnect dbcon = new DBconnect();
+        SqlDataReader dr;
+        public string _pass;
+
         public Staff()
         {
             InitializeComponent();
@@ -55,7 +62,7 @@ namespace Student_Hostel_Management
 
         private void btnSetting_Click(object sender, EventArgs e)
         {
-            openChildForm(new ChangePassword());
+            openChildForm(new ChangePassword(this));
         }
 
         private void btnLogout_Click(object sender, EventArgs e)

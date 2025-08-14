@@ -274,6 +274,7 @@
             this.btnPolicy.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPolicy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnPolicy.UseVisualStyleBackColor = false;
+            this.btnPolicy.Click += new System.EventHandler(this.btnPolicy_Click);
             // 
             // btnFee
             // 
