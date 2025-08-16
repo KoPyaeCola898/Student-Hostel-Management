@@ -54,5 +54,31 @@ namespace Student_Hostel_Management
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void picClose_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to update this Rule?", "Update Rule!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                cn.Open();
+                cmd = new SqlCommand("UPDATE tbRule SET ruleDes = @ruleDes, ruDate = @ruDate WHERE ruid LIKE'" + lblId.Text + "'", cn);
+                cmd.Parameters.AddWithValue("@ruleDes", txtRule.Text);
+                cmd.Parameters.AddWithValue("@ruDate", dtAddTime.Value.ToString("d"));
+                cmd.ExecuteNonQuery();
+                cn.Close();
+                MessageBox.Show("Rule has been successfully updated.", "Rule Update");
+                Clear();
+                this.Dispose();// To close this form after update data
+            }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            Clear();
+        }
     }
 }

@@ -34,15 +34,15 @@
             this.lblUsername = new System.Windows.Forms.Label();
             this.lblRole = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnAbsence = new System.Windows.Forms.Button();
             this.btnRollCall = new System.Windows.Forms.Button();
+            this.btnAttendance = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.btnReport = new System.Windows.Forms.Button();
             this.panelMain = new System.Windows.Forms.Panel();
             this.panelTitle = new System.Windows.Forms.Panel();
             this.panelSlide = new System.Windows.Forms.Panel();
             this.btnSetting = new System.Windows.Forms.Button();
-            this.btnPolicy = new System.Windows.Forms.Button();
+            this.btnRule = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelLogo.SuspendLayout();
@@ -101,26 +101,6 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // btnAbsence
-            // 
-            this.btnAbsence.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.btnAbsence.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnAbsence.FlatAppearance.BorderSize = 0;
-            this.btnAbsence.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAbsence.ForeColor = System.Drawing.Color.White;
-            this.btnAbsence.Image = ((System.Drawing.Image)(resources.GetObject("btnAbsence.Image")));
-            this.btnAbsence.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAbsence.Location = new System.Drawing.Point(0, 215);
-            this.btnAbsence.Name = "btnAbsence";
-            this.btnAbsence.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnAbsence.Size = new System.Drawing.Size(200, 45);
-            this.btnAbsence.TabIndex = 2;
-            this.btnAbsence.Text = " Absence";
-            this.btnAbsence.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAbsence.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAbsence.UseVisualStyleBackColor = false;
-            this.btnAbsence.Click += new System.EventHandler(this.btnAbsence_Click);
-            // 
             // btnRollCall
             // 
             this.btnRollCall.BackColor = System.Drawing.Color.DarkSlateGray;
@@ -130,16 +110,36 @@
             this.btnRollCall.ForeColor = System.Drawing.Color.White;
             this.btnRollCall.Image = ((System.Drawing.Image)(resources.GetObject("btnRollCall.Image")));
             this.btnRollCall.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRollCall.Location = new System.Drawing.Point(0, 170);
+            this.btnRollCall.Location = new System.Drawing.Point(0, 215);
             this.btnRollCall.Name = "btnRollCall";
             this.btnRollCall.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnRollCall.Size = new System.Drawing.Size(200, 45);
-            this.btnRollCall.TabIndex = 0;
-            this.btnRollCall.Text = " Attendance";
+            this.btnRollCall.TabIndex = 2;
+            this.btnRollCall.Text = " Roll Call";
             this.btnRollCall.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRollCall.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnRollCall.UseVisualStyleBackColor = false;
-            this.btnRollCall.Click += new System.EventHandler(this.btnRollCall_Click);
+            this.btnRollCall.Click += new System.EventHandler(this.btnAbsence_Click);
+            // 
+            // btnAttendance
+            // 
+            this.btnAttendance.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.btnAttendance.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAttendance.FlatAppearance.BorderSize = 0;
+            this.btnAttendance.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAttendance.ForeColor = System.Drawing.Color.White;
+            this.btnAttendance.Image = ((System.Drawing.Image)(resources.GetObject("btnAttendance.Image")));
+            this.btnAttendance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAttendance.Location = new System.Drawing.Point(0, 170);
+            this.btnAttendance.Name = "btnAttendance";
+            this.btnAttendance.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnAttendance.Size = new System.Drawing.Size(200, 45);
+            this.btnAttendance.TabIndex = 0;
+            this.btnAttendance.Text = " Attendance";
+            this.btnAttendance.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAttendance.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAttendance.UseVisualStyleBackColor = false;
+            this.btnAttendance.Click += new System.EventHandler(this.btnRollCall_Click);
             // 
             // panelLogo
             // 
@@ -198,11 +198,11 @@
             this.panelSlide.AutoScroll = true;
             this.panelSlide.BackColor = System.Drawing.Color.Teal;
             this.panelSlide.Controls.Add(this.btnSetting);
-            this.panelSlide.Controls.Add(this.btnPolicy);
+            this.panelSlide.Controls.Add(this.btnRule);
             this.panelSlide.Controls.Add(this.btnLogout);
             this.panelSlide.Controls.Add(this.btnReport);
-            this.panelSlide.Controls.Add(this.btnAbsence);
             this.panelSlide.Controls.Add(this.btnRollCall);
+            this.panelSlide.Controls.Add(this.btnAttendance);
             this.panelSlide.Controls.Add(this.panelLogo);
             this.panelSlide.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelSlide.Location = new System.Drawing.Point(0, 0);
@@ -230,25 +230,25 @@
             this.btnSetting.UseVisualStyleBackColor = false;
             this.btnSetting.Click += new System.EventHandler(this.btnSetting_Click);
             // 
-            // btnPolicy
+            // btnRule
             // 
-            this.btnPolicy.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.btnPolicy.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnPolicy.FlatAppearance.BorderSize = 0;
-            this.btnPolicy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPolicy.ForeColor = System.Drawing.Color.White;
-            this.btnPolicy.Image = ((System.Drawing.Image)(resources.GetObject("btnPolicy.Image")));
-            this.btnPolicy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPolicy.Location = new System.Drawing.Point(0, 305);
-            this.btnPolicy.Name = "btnPolicy";
-            this.btnPolicy.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnPolicy.Size = new System.Drawing.Size(200, 45);
-            this.btnPolicy.TabIndex = 13;
-            this.btnPolicy.Text = " Policy";
-            this.btnPolicy.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPolicy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnPolicy.UseVisualStyleBackColor = false;
-            this.btnPolicy.Click += new System.EventHandler(this.btnPolicy_Click);
+            this.btnRule.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.btnRule.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnRule.FlatAppearance.BorderSize = 0;
+            this.btnRule.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRule.ForeColor = System.Drawing.Color.White;
+            this.btnRule.Image = ((System.Drawing.Image)(resources.GetObject("btnRule.Image")));
+            this.btnRule.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRule.Location = new System.Drawing.Point(0, 305);
+            this.btnRule.Name = "btnRule";
+            this.btnRule.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnRule.Size = new System.Drawing.Size(200, 45);
+            this.btnRule.TabIndex = 13;
+            this.btnRule.Text = " Rules";
+            this.btnRule.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRule.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnRule.UseVisualStyleBackColor = false;
+            this.btnRule.Click += new System.EventHandler(this.btnPolicy_Click);
             // 
             // btnLogout
             // 
@@ -300,8 +300,8 @@
         public System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.Label lblRole;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button btnAbsence;
-        public System.Windows.Forms.Button btnRollCall;
+        private System.Windows.Forms.Button btnRollCall;
+        public System.Windows.Forms.Button btnAttendance;
         private System.Windows.Forms.Panel panelLogo;
         private System.Windows.Forms.Button btnReport;
         private System.Windows.Forms.Panel panelMain;
@@ -309,6 +309,6 @@
         private System.Windows.Forms.Panel panelSlide;
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Button btnSetting;
-        private System.Windows.Forms.Button btnPolicy;
+        private System.Windows.Forms.Button btnRule;
     }
 }

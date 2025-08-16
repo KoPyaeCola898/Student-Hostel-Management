@@ -57,7 +57,7 @@ namespace Student_Hostel_Management
 
         private void btnPolicy_Click(object sender, EventArgs e)
         {
-
+            openChildForm(new Rule());
         }
 
         private void btnSetting_Click(object sender, EventArgs e)

@@ -118,6 +118,12 @@
     <Compile Include="RoomModule.Designer.cs">
       <DependentUpon>RoomModule.cs</DependentUpon>
     </Compile>
+    <Compile Include="Rule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rule.Designer.cs">
+      <DependentUpon>Rule.cs</DependentUpon>
+    </Compile>
     <Compile Include="Staff.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -180,6 +186,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RoomModule.resx">
       <DependentUpon>RoomModule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rule.resx">
+      <DependentUpon>Rule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Staff.resx">
       <DependentUpon>Staff.cs</DependentUpon>

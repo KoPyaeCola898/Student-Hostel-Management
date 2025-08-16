@@ -270,7 +270,7 @@
             this.btnPolicy.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnPolicy.Size = new System.Drawing.Size(200, 45);
             this.btnPolicy.TabIndex = 11;
-            this.btnPolicy.Text = " Policy";
+            this.btnPolicy.Text = " Rules";
             this.btnPolicy.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPolicy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnPolicy.UseVisualStyleBackColor = false;
