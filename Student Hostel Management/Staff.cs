@@ -42,12 +42,14 @@ namespace Student_Hostel_Management
 
         private void btnRollCall_Click(object sender, EventArgs e)
         {
-
+            openChildForm(new Attendance());
         }
 
         private void btnAbsence_Click(object sender, EventArgs e)
         {
-
+            RollCall rc = new RollCall();
+            //rc.Load();
+            rc.ShowDialog();
         }
 
         private void btnReport_Click(object sender, EventArgs e)
@@ -73,6 +75,11 @@ namespace Student_Hostel_Management
                 Login login = new Login();
                 login.ShowDialog();
             }
+        }
+
+        private void Staff_Load(object sender, EventArgs e)
+        {
+            btnAttendance.PerformClick(); // Automatically open the Attendance form when the Staff form loads
         }
     }
 }
