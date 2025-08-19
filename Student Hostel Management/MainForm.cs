@@ -94,7 +94,7 @@ namespace Student_Hostel_Management
 
         private void btnRollCall_Click(object sender, EventArgs e)
         {
-            
+            openChildForm(new AttReport());
         }
 
         private void btnSetting_Click(object sender, EventArgs e)

@@ -16,7 +16,7 @@ namespace Student_Hostel_Management
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Staff());
+            Application.Run(new MainForm());
         }
     }
 }

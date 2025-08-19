@@ -61,6 +61,12 @@
     <Compile Include="Attendance.Designer.cs">
       <DependentUpon>Attendance.cs</DependentUpon>
     </Compile>
+    <Compile Include="AttReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AttReport.Designer.cs">
+      <DependentUpon>AttReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChangePassword.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,6 +168,9 @@
     </Compile>
     <EmbeddedResource Include="Attendance.resx">
       <DependentUpon>Attendance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AttReport.resx">
+      <DependentUpon>AttReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ChangePassword.resx">
       <DependentUpon>ChangePassword.cs</DependentUpon>
