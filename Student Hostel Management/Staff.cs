@@ -22,6 +22,7 @@ namespace Student_Hostel_Management
         public Staff()
         {
             InitializeComponent();
+            cn = new SqlConnection(dbcon.myConnection());
         }
 
         private Form activeForm = null;
@@ -47,7 +48,7 @@ namespace Student_Hostel_Management
 
         private void btnAbsence_Click(object sender, EventArgs e)
         {
-            RollCall rc = new RollCall();
+            RollCall rc = new RollCall(this);
             //rc.Load();
             rc.ShowDialog();
         }
@@ -80,6 +81,21 @@ namespace Student_Hostel_Management
         private void Staff_Load(object sender, EventArgs e)
         {
             btnAttendance.PerformClick(); // Automatically open the Attendance form when the Staff form loads
+
+            // Check if attendance has already been taken today
+            cn.Open();
+            cmd = new SqlCommand("SELECT COUNT(*) FROM tbAttendance WHERE attDate = CAST(GETDATE() AS DATE)", cn);
+            int count = Convert.ToInt32(cmd.ExecuteScalar());
+            cn.Close();
+
+            if (count > 0)
+            {
+                btnRollCall.Enabled = false;
+            }
+            else
+            {
+                btnRollCall.Enabled = true;
+            }
         }
     }
 }

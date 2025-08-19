@@ -301,7 +301,6 @@
         public System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.Label lblRole;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button btnRollCall;
         public System.Windows.Forms.Button btnAttendance;
         private System.Windows.Forms.Panel panelLogo;
         private System.Windows.Forms.Button btnReport;
@@ -311,5 +310,6 @@
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Button btnSetting;
         private System.Windows.Forms.Button btnRule;
+        public System.Windows.Forms.Button btnRollCall;
     }
 }

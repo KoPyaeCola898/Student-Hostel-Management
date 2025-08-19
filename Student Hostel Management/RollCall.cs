@@ -17,12 +17,14 @@ namespace Student_Hostel_Management
         SqlCommand cmd = new SqlCommand();
         DBconnect dbcon = new DBconnect();
         SqlDataReader dr;
+        Staff staff;
 
-        public RollCall()
+        public RollCall(Staff st)
         {
             InitializeComponent();
             cn = new SqlConnection(dbcon.myConnection());
             LoadData();
+            staff = st;
         }
 
         public void LoadData()
@@ -91,6 +93,8 @@ namespace Student_Hostel_Management
                 cn.Close();
                 MessageBox.Show("Attendance Recorded Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Dispose();
+                staff.btnRollCall.Enabled = false; // Disable the Roll Call button after submission
+                staff.btnAttendance.PerformClick(); // Refresh the Attendance form
             }
         }
     }
