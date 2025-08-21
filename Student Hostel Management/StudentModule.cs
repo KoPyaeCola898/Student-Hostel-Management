@@ -84,6 +84,19 @@ namespace Student_Hostel_Management
                     cmdParent.Parameters.AddWithValue("@faddress", txtfAddress.Text);
                     cmdParent.ExecuteNonQuery();
 
+                    // Insert Admission Fee
+                    SqlCommand cmdAFee = new SqlCommand("INSERT INTO tbAdFee (sid, amount, status) VALUES (@sid, @amount, 'Unpaid')", cn);
+                    cmdAFee.Parameters.AddWithValue("@sid", newSid);
+                    cmdAFee.Parameters.AddWithValue("@amount", txtFee.Text); // admission fee
+                    cmdAFee.ExecuteNonQuery();
+
+                    // Insert Monthly Fee
+                    SqlCommand cmdMFee = new SqlCommand("INSERT INTO tbMFee (sid, feeMonth, status) VALUES (@sid, @month, 'Unpaid')", cn);
+                    cmdMFee.Parameters.AddWithValue("@sid", newSid);
+                    cmdMFee.Parameters.AddWithValue("@month", DateTime.Now.ToString("d"));
+                    cmdMFee.ExecuteNonQuery();
+
+
                     // Update occupied count (+1)
                     SqlCommand cmd2 = new SqlCommand("UPDATE tbRoom SET occupied = occupied + 1 WHERE id = @rid", cn);
                     cmd2.Parameters.AddWithValue("@rid", cboRoom.SelectedValue);

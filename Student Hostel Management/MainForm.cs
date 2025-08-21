@@ -89,7 +89,7 @@ namespace Student_Hostel_Management
 
         private void btnFee_Click(object sender, EventArgs e)
         {
-            
+            openChildForm(new Fee());
         }
 
         private void btnRollCall_Click(object sender, EventArgs e)
@@ -100,7 +100,8 @@ namespace Student_Hostel_Management
         private void btnSetting_Click(object sender, EventArgs e)
         {
             openChildForm(new UserAccount(this));
-            
+            //UserAccount user = new UserAccount(this);
+            //user.txtUsername.Focus(); // Set focus to the username field in UserAccount form
         }
 
         private void btnLogout_Click(object sender, EventArgs e)

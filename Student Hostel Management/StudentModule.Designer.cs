@@ -56,6 +56,9 @@
             this.label11 = new System.Windows.Forms.Label();
             this.txtfName = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
+            this.txtFee = new System.Windows.Forms.TextBox();
+            this.lblFee = new System.Windows.Forms.Label();
+            this.lblUnit = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picClose)).BeginInit();
             this.SuspendLayout();
@@ -313,12 +316,44 @@
             this.label12.TabIndex = 90;
             this.label12.Text = "Student Info";
             // 
+            // txtFee
+            // 
+            this.txtFee.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.txtFee.Location = new System.Drawing.Point(160, 469);
+            this.txtFee.Name = "txtFee";
+            this.txtFee.Size = new System.Drawing.Size(96, 34);
+            this.txtFee.TabIndex = 92;
+            this.txtFee.Text = "50000";
+            // 
+            // lblFee
+            // 
+            this.lblFee.AutoSize = true;
+            this.lblFee.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFee.Location = new System.Drawing.Point(33, 472);
+            this.lblFee.Name = "lblFee";
+            this.lblFee.Size = new System.Drawing.Size(178, 26);
+            this.lblFee.TabIndex = 91;
+            this.lblFee.Text = "Admission Fee :";
+            // 
+            // lblUnit
+            // 
+            this.lblUnit.AutoSize = true;
+            this.lblUnit.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUnit.Location = new System.Drawing.Point(257, 473);
+            this.lblUnit.Name = "lblUnit";
+            this.lblUnit.Size = new System.Drawing.Size(66, 26);
+            this.lblUnit.TabIndex = 93;
+            this.lblUnit.Text = "MMK";
+            // 
             // StudentModule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
             this.ClientSize = new System.Drawing.Size(732, 515);
+            this.Controls.Add(this.lblUnit);
+            this.Controls.Add(this.txtFee);
+            this.Controls.Add(this.lblFee);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txtfPhno);
@@ -387,5 +422,8 @@
         private System.Windows.Forms.Label label11;
         public System.Windows.Forms.TextBox txtfName;
         private System.Windows.Forms.Label label12;
+        public System.Windows.Forms.TextBox txtFee;
+        public System.Windows.Forms.Label lblFee;
+        public System.Windows.Forms.Label lblUnit;
     }
 }

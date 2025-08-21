@@ -76,6 +76,10 @@ namespace Student_Hostel_Management
                 cn.Close();
                 drp.Close();
 
+                student.txtFee.Visible = false;
+                student.lblFee.Visible = false;
+                student.lblUnit.Visible = false;
+
                 student.btnSave.Enabled = false;
                 student.btnUpdate.Enabled = true;
                 student.ShowDialog();
@@ -91,6 +95,13 @@ namespace Student_Hostel_Management
 
                     SqlCommand cmd2 = new SqlCommand("DELETE FROM tbParent WHERE sid LIKE '" + dgvStudent[1, e.RowIndex].Value.ToString() + "'", cn);
                     cmd2.ExecuteNonQuery();
+
+                    // Update the room's occupied count
+                    SqlCommand cmdroom = new SqlCommand("UPDATE tbRoom SET occupied = occupied - 1 WHERE roomNo LIKE '" + dgvStudent[5, e.RowIndex].Value.ToString() + "'", cn);
+                    cmdroom.ExecuteNonQuery();
+
+                    SqlCommand cmdrstatus = new SqlCommand("UPDATE tbRoom SET status = 'Available' WHERE roomNo LIKE '" + dgvStudent[5, e.RowIndex].Value.ToString() + "'", cn);
+                    cmdrstatus.ExecuteNonQuery();
 
                     cn.Close();
                     MessageBox.Show("Student has been successfully Removed.", "Remove Student", MessageBoxButtons.OK, MessageBoxIcon.Information);

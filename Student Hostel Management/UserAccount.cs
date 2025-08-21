@@ -29,6 +29,7 @@ namespace Student_Hostel_Management
             cn = new SqlConnection(dbcon.myConnection());
             main = mn;
             LoadUser(); 
+            txtUsername.Focus(); // Set focus to the username field on form load
         }
 
         public void LoadUser()
@@ -118,6 +119,8 @@ namespace Student_Hostel_Management
         private void UserAccount_Load(object sender, EventArgs e)
         {
             lblUsername.Text = main.lblUsername.Text;
+
+            metroTabControl1.SelectedIndex = 0; // Set the default tab to the first tab (Create Accounts)
         }
 
         private void btnPassCancel_Click(object sender, EventArgs e)
