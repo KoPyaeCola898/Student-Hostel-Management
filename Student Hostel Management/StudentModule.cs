@@ -93,7 +93,7 @@ namespace Student_Hostel_Management
                     // Insert Monthly Fee
                     SqlCommand cmdMFee = new SqlCommand("INSERT INTO tbMFee (sid, feeMonth, status) VALUES (@sid, @month, 'Unpaid')", cn);
                     cmdMFee.Parameters.AddWithValue("@sid", newSid);
-                    cmdMFee.Parameters.AddWithValue("@month", DateTime.Now.ToString("d"));
+                    cmdMFee.Parameters.AddWithValue("@month", DateTime.Now.ToString("yyyy-MM-01"));
                     cmdMFee.ExecuteNonQuery();
 
 
