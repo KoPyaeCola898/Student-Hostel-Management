@@ -18,6 +18,7 @@ namespace Student_Hostel_Management
         SqlCommand cmd2 = new SqlCommand();
         SqlCommand cmd3 = new SqlCommand();
         SqlCommand cmd4 = new SqlCommand();
+        SqlCommand cmd5 = new SqlCommand();
         DBconnect dbcon = new DBconnect();
         SqlDataReader dr;
         SqlDataReader dr2;
@@ -35,13 +36,13 @@ namespace Student_Hostel_Management
         public void LoadAdmissionFee()
         {
             int i = dgvFee.Rows.Count;
-            cmd = new SqlCommand("SELECT s.rollNo, s.name, r.roomNo, a.status FROM tbAdFee AS a INNER JOIN tbStudent AS s ON a.sid = s.stid INNER JOIN tbRoom AS r ON s.rid = r.id WHERE a.status = 'Unpaid'", cn);
+            cmd = new SqlCommand("SELECT s.rollNo, s.name, r.roomNo, a.amount, a.status FROM tbAdFee AS a INNER JOIN tbStudent AS s ON a.sid = s.stid INNER JOIN tbRoom AS r ON s.rid = r.id WHERE a.status = 'Unpaid'", cn);
             cn.Open();
             dr = cmd.ExecuteReader();
             while (dr.Read())
             {
                 i++;
-                dgvFee.Rows.Add(i, dr["rollNo"].ToString(), dr["name"].ToString(), dr["roomNo"].ToString(), "Admission", "-", dr["status"].ToString());
+                dgvFee.Rows.Add(i, dr["rollNo"].ToString(), dr["name"].ToString(), dr["roomNo"].ToString(), "Admission", "-", dr["amount"].ToString(), dr["status"].ToString());
             }
             dr.Close();
             cn.Close();
@@ -56,7 +57,7 @@ namespace Student_Hostel_Management
             while (dr2.Read())
             {
                 i++;
-                dgvFee.Rows.Add(i, dr2["rollNo"].ToString(), dr2["name"].ToString(), dr2["roomNo"].ToString(), "Monthly", Convert.ToDateTime(dr2["feeMonth"]), dr2["status"].ToString());
+                dgvFee.Rows.Add(i, dr2["rollNo"].ToString(), dr2["name"].ToString(), dr2["roomNo"].ToString(), "Monthly", Convert.ToDateTime(dr2["feeMonth"]), "", dr2["status"].ToString());
                 dgvFee.Columns[5].DefaultCellStyle.Format = "MM-yyyy"; // Format the date column
             }
             dr2.Close();
@@ -116,6 +117,53 @@ namespace Student_Hostel_Management
         private void Fee_Load(object sender, EventArgs e)
         {
             
+        }
+
+        private void dgvFee_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string colName = dgvFee.Columns[e.ColumnIndex].Name;
+            if (colName == "Pay")
+            {
+                
+
+                string feeType = dgvFee.Rows[e.RowIndex].Cells[4].Value.ToString();
+                string rollNo = dgvFee.Rows[e.RowIndex].Cells[1].Value.ToString();
+                if (feeType == "Admission")
+                {
+                    FeeMonth2 admissionFee = new FeeMonth2();
+                    admissionFee.txtRollNo.Text = dgvFee.Rows[e.RowIndex].Cells[1].Value.ToString();
+                    admissionFee.txtName.Text = dgvFee.Rows[e.RowIndex].Cells[2].Value.ToString();
+                    admissionFee.txtRoomNo.Text = dgvFee.Rows[e.RowIndex].Cells[3].Value.ToString();
+                    admissionFee.txtFeeType.Text = dgvFee.Rows[e.RowIndex].Cells[4].Value.ToString();
+                    admissionFee.txtAmount.Text = dgvFee.Rows[e.RowIndex].Cells[6].Value.ToString();
+                    //cmd5 = new SqlCommand("UPDATE tbAdFee SET status = 'Paid' WHERE sid = (SELECT stid FROM tbStudent WHERE rollNo = @rollNo) AND status = 'Unpaid'", cn);
+                    //cmd5.Parameters.AddWithValue("@rollNo", rollNo);
+                    //cn.Open();
+                    //cmd5.ExecuteNonQuery();
+                    //cn.Close();
+                    admissionFee.ShowDialog();
+                }
+                else if (feeType == "Monthly")
+                {
+                    FeeModule module = new FeeModule();
+                    module.txtRollNo.Text = dgvFee.Rows[e.RowIndex].Cells[1].Value.ToString();
+                    module.txtName.Text = dgvFee.Rows[e.RowIndex].Cells[2].Value.ToString();
+                    module.txtRoomNo.Text = dgvFee.Rows[e.RowIndex].Cells[3].Value.ToString();
+                    module.txtFeeType.Text = dgvFee.Rows[e.RowIndex].Cells[4].Value.ToString();
+                    module.txtFeeMonth.Text = Convert.ToDateTime(dgvFee.Rows[e.RowIndex].Cells[5].Value).ToString("MM-yyyy");
+                    module.txtAmount.Text = txtMonthFee.Text;
+                    //cmd5 = new SqlCommand("UPDATE tbMFee SET status = 'Paid' WHERE sid = (SELECT stid FROM tbStudent WHERE rollNo = @rollNo) AND status = 'Unpaid'", cn);
+                    //cmd5.Parameters.AddWithValue("@rollNo", rollNo);
+                    //cn.Open();
+                    //cmd5.ExecuteNonQuery();
+                    //cn.Close();
+                    module.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Unknown type!");
+                }
+            }
         }
     }
 }

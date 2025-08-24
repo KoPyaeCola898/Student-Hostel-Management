@@ -80,6 +80,18 @@
     <Compile Include="Fee.Designer.cs">
       <DependentUpon>Fee.cs</DependentUpon>
     </Compile>
+    <Compile Include="FeeModule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FeeModule.Designer.cs">
+      <DependentUpon>FeeModule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FeeMonth2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FeeMonth2.Designer.cs">
+      <DependentUpon>FeeMonth2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -183,6 +195,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Fee.resx">
       <DependentUpon>Fee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FeeModule.resx">
+      <DependentUpon>FeeModule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FeeMonth2.resx">
+      <DependentUpon>FeeMonth2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

@@ -28,27 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Fee));
             this.metroTabPage3 = new MetroFramework.Controls.MetroTabPage();
+            this.btnOK = new System.Windows.Forms.Button();
+            this.txtMonthFee = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.dgvFee = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Pay = new System.Windows.Forms.DataGridViewImageColumn();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtMonthFee = new System.Windows.Forms.TextBox();
-            this.btnOK = new System.Windows.Forms.Button();
             this.metroTabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFee)).BeginInit();
             this.panel1.SuspendLayout();
@@ -64,7 +65,7 @@
             this.metroTabPage3.Controls.Add(this.dgvFee);
             this.metroTabPage3.HorizontalScrollbarBarColor = true;
             this.metroTabPage3.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroTabPage3.HorizontalScrollbarSize = 4;
+            this.metroTabPage3.HorizontalScrollbarSize = 3;
             this.metroTabPage3.Location = new System.Drawing.Point(4, 38);
             this.metroTabPage3.Name = "metroTabPage3";
             this.metroTabPage3.Size = new System.Drawing.Size(975, 519);
@@ -72,7 +73,38 @@
             this.metroTabPage3.Text = "Unpaid Students";
             this.metroTabPage3.VerticalScrollbarBarColor = true;
             this.metroTabPage3.VerticalScrollbarHighlightOnWheel = false;
-            this.metroTabPage3.VerticalScrollbarSize = 2;
+            this.metroTabPage3.VerticalScrollbarSize = 1;
+            // 
+            // btnOK
+            // 
+            this.btnOK.BackColor = System.Drawing.Color.OrangeRed;
+            this.btnOK.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btnOK.Location = new System.Drawing.Point(920, 420);
+            this.btnOK.Name = "btnOK";
+            this.btnOK.Size = new System.Drawing.Size(40, 29);
+            this.btnOK.TabIndex = 7;
+            this.btnOK.Text = "OK";
+            this.btnOK.UseVisualStyleBackColor = false;
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
+            // 
+            // txtMonthFee
+            // 
+            this.txtMonthFee.BackColor = System.Drawing.Color.Gainsboro;
+            this.txtMonthFee.Location = new System.Drawing.Point(780, 420);
+            this.txtMonthFee.Name = "txtMonthFee";
+            this.txtMonthFee.Size = new System.Drawing.Size(134, 34);
+            this.txtMonthFee.TabIndex = 6;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.White;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(616, 423);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(223, 26);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Fee For This Month : ";
             // 
             // dgvFee
             // 
@@ -81,14 +113,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvFee.BackgroundColor = System.Drawing.Color.White;
             this.dgvFee.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle23.BackColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.Aquamarine;
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvFee.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.Aquamarine;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvFee.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.dgvFee.ColumnHeadersHeight = 30;
             this.dgvFee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvFee.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -98,6 +130,7 @@
             this.Column5,
             this.Column6,
             this.Column7,
+            this.Column8,
             this.Column4,
             this.Pay});
             this.dgvFee.EnableHeadersVisualStyles = false;
@@ -107,12 +140,65 @@
             this.dgvFee.RowHeadersWidth = 62;
             this.dgvFee.Size = new System.Drawing.Size(945, 363);
             this.dgvFee.TabIndex = 4;
+            this.dgvFee.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFee_CellContentClick);
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
+            this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label1.Location = new System.Drawing.Point(7, 18);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(107, 43);
+            this.label1.TabIndex = 0;
+            this.label1.Text = " Manage Fee";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Green;
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 481);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(983, 80);
+            this.panel1.TabIndex = 7;
+            // 
+            // metroTabControl1
+            // 
+            this.metroTabControl1.Controls.Add(this.metroTabPage3);
+            this.metroTabControl1.Controls.Add(this.tabPage1);
+            this.metroTabControl1.Controls.Add(this.tabPage2);
+            this.metroTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.metroTabControl1.Location = new System.Drawing.Point(0, 0);
+            this.metroTabControl1.Name = "metroTabControl1";
+            this.metroTabControl1.SelectedIndex = 0;
+            this.metroTabControl1.Size = new System.Drawing.Size(983, 561);
+            this.metroTabControl1.TabIndex = 8;
+            this.metroTabControl1.UseSelectable = true;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Location = new System.Drawing.Point(4, 38);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Size = new System.Drawing.Size(975, 519);
+            this.tabPage1.TabIndex = 3;
+            this.tabPage1.Text = "tabPage1";
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 38);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Size = new System.Drawing.Size(975, 519);
+            this.tabPage2.TabIndex = 4;
+            this.tabPage2.Text = "tabPage2";
             // 
             // Column1
             // 
             this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle24.BackColor = System.Drawing.Color.White;
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.White;
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle14;
             this.Column1.HeaderText = "No";
             this.Column1.MinimumWidth = 8;
             this.Column1.Name = "Column1";
@@ -157,6 +243,15 @@
             this.Column7.Name = "Column7";
             this.Column7.Width = 162;
             // 
+            // Column8
+            // 
+            this.Column8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column8.HeaderText = "Amount";
+            this.Column8.MinimumWidth = 8;
+            this.Column8.Name = "Column8";
+            this.Column8.Visible = false;
+            this.Column8.Width = 133;
+            // 
             // Column4
             // 
             this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -173,89 +268,6 @@
             this.Pay.MinimumWidth = 8;
             this.Pay.Name = "Pay";
             this.Pay.Width = 8;
-            // 
-            // label1
-            // 
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
-            this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Location = new System.Drawing.Point(7, 18);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(94, 43);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "User Setting";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Green;
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 481);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(983, 80);
-            this.panel1.TabIndex = 7;
-            // 
-            // metroTabControl1
-            // 
-            this.metroTabControl1.Controls.Add(this.metroTabPage3);
-            this.metroTabControl1.Controls.Add(this.tabPage1);
-            this.metroTabControl1.Controls.Add(this.tabPage2);
-            this.metroTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.metroTabControl1.Location = new System.Drawing.Point(0, 0);
-            this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 0;
-            this.metroTabControl1.Size = new System.Drawing.Size(983, 561);
-            this.metroTabControl1.TabIndex = 8;
-            this.metroTabControl1.UseSelectable = true;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 38);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(975, 519);
-            this.tabPage1.TabIndex = 3;
-            this.tabPage1.Text = "tabPage1";
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 38);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(975, 519);
-            this.tabPage2.TabIndex = 4;
-            this.tabPage2.Text = "tabPage2";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.White;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(616, 423);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(223, 26);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Fee For This Month : ";
-            // 
-            // txtMonthFee
-            // 
-            this.txtMonthFee.BackColor = System.Drawing.Color.Gainsboro;
-            this.txtMonthFee.Location = new System.Drawing.Point(780, 420);
-            this.txtMonthFee.Name = "txtMonthFee";
-            this.txtMonthFee.Size = new System.Drawing.Size(134, 34);
-            this.txtMonthFee.TabIndex = 6;
-            // 
-            // btnOK
-            // 
-            this.btnOK.BackColor = System.Drawing.Color.OrangeRed;
-            this.btnOK.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.btnOK.Location = new System.Drawing.Point(920, 420);
-            this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(40, 29);
-            this.btnOK.TabIndex = 7;
-            this.btnOK.Text = "OK";
-            this.btnOK.UseVisualStyleBackColor = false;
-            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // Fee
             // 
@@ -289,16 +301,17 @@
         private MetroFramework.Controls.MetroTabControl metroTabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewImageColumn Pay;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtMonthFee;
-        private System.Windows.Forms.Button btnOK;
+        public System.Windows.Forms.TextBox txtMonthFee;
     }
 }

@@ -376,8 +376,8 @@
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Panel panelSlide;
         public System.Windows.Forms.Button btnDashboard;
-        private System.Windows.Forms.Button btnFee;
         public System.Windows.Forms.Button btnParent;
         private System.Windows.Forms.Button btnPolicy;
+        public System.Windows.Forms.Button btnFee;
     }
 }
