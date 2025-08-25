@@ -29,7 +29,7 @@ namespace Student_Hostel_Management
         {
             int i = 0;
             dgvRule.Rows.Clear();
-            cmd = new SqlCommand("SELECT * FROM tbRule ORDER BY ruDate DESC", cn);
+            cmd = new SqlCommand("SELECT * FROM tbRule ORDER BY ruDate", cn);
             cn.Open();
             dr = cmd.ExecuteReader();
             while (dr.Read())
